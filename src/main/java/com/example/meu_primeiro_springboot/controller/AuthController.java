@@ -34,7 +34,7 @@ public class AuthController {
         
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Map<String, String> request) {
         Optional<Usuario> usuario = usuarioService.buscarPorUserName(request.get("username"));
         if (usuario.isPresent() &&  usuario.get().getPassword().equals(request.get("password"))) {
